@@ -1,0 +1,9 @@
+{
+  "short_name": "Algo Learner",
+  "name": "Data Structures and Algorithms Learning Platform",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
