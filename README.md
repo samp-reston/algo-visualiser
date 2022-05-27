@@ -5,6 +5,9 @@ Not only does this project allow the programmer to explore the way these data st
 
 This project serves a teriary reason, and that is to improve my own knowledge of data structures and algorithms and their manipulation.
 
+## Documentation
+To learn about the process of designing and developing this application please follow the link here to the documentation
+
 ## Table of Contents
 - [Data Structures & Algorithms Visualiser](#data-structures---algorithms-visualiser)
   * [Data Structures](#data-structures)
