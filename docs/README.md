@@ -21,3 +21,10 @@ After this I needed to design on a colour palette. Usually I got for very blue c
 ![User Interface Design](./designs/interface/Home-Design.png)
 
 ## Architecture
+The first part of determining the architecture of the application is a simple component tree in which we detail which components will house which sub-components.
+
+From the design, this allows us to create a hierarchy of components in which we will build the interface. Each TypeScript React project starts with an App.tsx in which we initialise the application so this will be our 'head node'.
+
+![Component Tree](./designs/architecture/Data%20Structure%20and%20Alogrithm%20Visualiser.png)
+
+The dotted boxes symbolise the state sharing between components, as expected there is a lot of state management occuring within the parent Data Structure or Algorithm component.
