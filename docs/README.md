@@ -18,6 +18,6 @@ Ensuring the interface is user friendly and intuitive is difficult, however, luc
 
 After this I needed to design on a colour palette. Usually I got for very blue centric designs so I kept with the theme. I created the design using Figma.
 
-![User Interface Design](./interface/Home Design.png)
+![User Interface Design](./interface/Home-Design.png)
 
 ## Architecture
