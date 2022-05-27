@@ -34,3 +34,5 @@ This project will operate with development branches. Any branches made off the m
 
 As shown by the following Swim Lane diagram is the CI/CD workflow for each event.
 ![CI/CD](./designs/CI-CD/Actions%20and%20Workflow.png)
+
+To build upon these principles further I have protected the main branch from direct commits.
