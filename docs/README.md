@@ -14,6 +14,10 @@ The starting requirements are as follows:
 ## User Interface
 The user interface is the first design to be done, it is the most important as it is what governs how the users iteract with the application.
 
-Ensuring the interface is user friendly and intuitive is difficult, however, luckily for this application there were very few requirements.
+Ensuring the interface is user friendly and intuitive is difficult, however, luckily for this application there were very few requirements. With these requirements I was able to develop quick sketches which satisfied the most important to the least important.
+
+After this I needed to design on a colour palette. Usually I got for very blue centric designs so I kept with the theme. I created the design using Figma.
+
+![User Interface Design](./interface/Home Design.png)
 
 ## Architecture
