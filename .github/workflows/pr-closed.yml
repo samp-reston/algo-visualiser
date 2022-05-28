@@ -1,0 +1,31 @@
+name: Pull Request
+on:
+  pull-request:
+    types:
+      - opened
+    branches:
+      - '*'
+
+jobs:
+  test-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set-Up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "16.x"
+
+      - run: npm install
+
+      - run: npm run test
+
+      - name: Deploy
+        uses: crazy-max/ghaction-github-pages@v1
+          with:
+            target_branch: gh-pages
+            build_dir: build
+          env:
+            GITHUB_TOKEN: ${{ secrets.REPO_TOKEN}}
