@@ -30,9 +30,7 @@ From the design, this allows us to create a hierarchy of components in which we 
 The dotted boxes symbolise the state sharing between components, as expected there is a lot of state management occuring within the parent Data Structure or Algorithm component.
 
 ## Continuous Integration Continuous Delivery
-This project will operate with development branches. Any branches made off the main branch will be assumed to be a development branch on which unit tests will be ran every commit and integration tests ran upon merge onto main branch.
+This project will operate with development branches. To build upon these principles further I have protected the main branch from direct commits.
 
 As shown by the following Swim Lane diagram is the CI/CD workflow for each event.
 ![CI/CD](./designs/CI-CD/Actions%20and%20Workflow.png)
-
-To build upon these principles further I have protected the main branch from direct commits.
