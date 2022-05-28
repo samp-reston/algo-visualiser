@@ -20,6 +20,15 @@ jobs:
 
       - run: npm run test
 
+      - name: Run E2E tests
+        uses: cypress-io/github-action@v2
+
+      - name: Run Component tests
+        uses: cypress-io/github-action@v2
+        with:
+          install: false
+          command: npx cypress run-ct
+
       - run: npm run build
 
       - name: Deploy

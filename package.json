@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://samp-reston.github.io/algo-visualiser",
+  "jest": {
+    "testMatch": ["**/?(*.)+(test).[jt]s?(x)"]
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
@@ -23,7 +26,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "cypress:open": "cypress open"
   },
   "eslintConfig": {
     "extends": [
@@ -44,6 +48,10 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^4.0.0"
+    "@cypress/react": "^5.12.5",
+    "@cypress/webpack-dev-server": "^1.8.4",
+    "cypress": "^9.7.0",
+    "gh-pages": "^4.0.0",
+    "html-webpack-plugin": "^4.5.2"
   }
 }
