@@ -33,4 +33,5 @@ The dotted boxes symbolise the state sharing between components, as expected the
 This project will operate with development branches. To build upon these principles further I have protected the main branch from direct commits.
 
 As shown by the following Swim Lane diagram is the CI/CD workflow for each event.
+
 ![CI/CD](./designs/CI-CD/Actions%20and%20Workflow.png)
