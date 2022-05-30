@@ -4,10 +4,13 @@ export interface Node {
   right: null | Node;
   parent: null | Node;
 
-  setValue(value: number | string): Node;
+  setValue(value: any): Node;
   setLeft(node: Node): Node;
   setRight(node: Node): Node;
-  insert(value: number | string): Node;
+  insert(value: any): Node;
+  find(value: any): null | Node;
+  contains(value: any): boolean;
+  findMin(): Node;
 }
 
 export default class BinarySearchTreeNode implements Node {
@@ -85,5 +88,31 @@ export default class BinarySearchTreeNode implements Node {
     return this
   }
 
-  
+  find(value: any): null | Node {
+    if (this.value === value) {
+      return this
+    }
+
+    if (this.left && value < this.value) {
+      return this.left.find(value)
+    }
+
+    if (this.right && value > this.value) {
+      return this.right.find(value)
+    }
+
+    return null
+  }
+
+  contains(value: any): boolean {
+    return !!this.find(value)
+  }
+
+  findMin(): Node {
+    if (!this.left) {
+      return this
+    }
+
+    return this.left.findMin()
+  }
 }
