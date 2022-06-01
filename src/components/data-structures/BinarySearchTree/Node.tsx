@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-interface BinarySearchTreeNode {
+export interface BinarySearchTreeNode {
   value: any;
   left?: null | ConnectedNode;
   right?: null | ConnectedNode;
