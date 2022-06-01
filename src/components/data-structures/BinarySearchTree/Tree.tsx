@@ -1,6 +1,3 @@
-import React from 'react'
-import BinarySearchTreeNode from './Node'
-
 interface TreeProps {
   children: JSX.Element | JSX.Element[]
 }
