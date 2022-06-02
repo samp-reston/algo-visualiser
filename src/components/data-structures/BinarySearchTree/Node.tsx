@@ -2,22 +2,10 @@ import { useEffect, useState } from "react"
 
 interface BinarySearchTreeNode {
   value: any;
-  left?: null | ConnectedNode;
-  right?: null | ConnectedNode;
-  parent?: null | ConnectedNode
-}
-
-interface ConnectedNode {
-  xPos: number;
-  yPos: number;
 }
 
 function Node(props: BinarySearchTreeNode) {
-
   const [value, setValue] = useState<string | null>(null)
-  const [left, setLeft] = useState<null | ConnectedNode>(null)
-  const [right, setRight] = useState<null | ConnectedNode>(null)
-  const [parent, setParent] = useState<null | ConnectedNode>(null)
 
   const nodeStyle = {
     'height': '64px',
@@ -39,6 +27,7 @@ function Node(props: BinarySearchTreeNode) {
       setValue(null)
     }
   }, [props.value])
+
 
   if (!value) return <></>
 

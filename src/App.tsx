@@ -6,11 +6,7 @@ function App() {
   return (
     <>
       <Header />
-      <Tree>
-        <Node value={1} />
-        <Node value={3} />
-        <Node value={4} />
-      </Tree>
+      <Tree nodes={['1', '2', '3']} />
     </>
   )
 }

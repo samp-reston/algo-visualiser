@@ -1,13 +1,16 @@
+import Node from "./Node";
+
 interface TreeProps {
-  children: JSX.Element | JSX.Element[]
+  nodes: string[]
 }
 
-function Tree({ children }: TreeProps) {
-  console.log(children);
+function Tree({ nodes }: TreeProps) {
 
   return (
     <div data-testid="bst-tree">
-      {children}
+      {nodes.map((node) => {
+        return (<Node value={node} />)
+      })}
     </div>
   )
 }
