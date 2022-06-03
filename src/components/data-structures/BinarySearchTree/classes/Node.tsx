@@ -11,9 +11,9 @@ export interface Node {
   readonly rightHeight: number;
 
   setValue(value: any): Node;
-  setLeft(node: null | Node): Node;
-  setRight(node: null | Node): Node;
-  insert(value: any): Node;
+  setLeft(node: null | Node): void;
+  setRight(node: null | Node): void;
+  insert(value: any): void;
   find(value: any): null | Node;
   contains(value: any): boolean;
   findMin(): Node;
@@ -65,22 +65,22 @@ export default class BinarySearchTreeNode extends Component implements Node {
     return this
   }
 
-  setLeft(node: null | Node): Node {
+  setLeft(node: null | Node): void {
     if (this.left) {
       console.warn('Left child exists.')
       this.left.parent = null
+      console.warn('Remove parent of left child.')
     }
 
     this.left = node
-
     if (this.left) {
       console.warn('Left child exists.')
       this.left.parent = this
+      console.warn('Assign me to new nodes parent')
     }
-    return this
   }
 
-  setRight(node: null | Node): Node {
+  setRight(node: null | Node): void {
     if (this.right) {
       console.warn('Right child exists.')
       this.right.parent = null
@@ -94,16 +94,14 @@ export default class BinarySearchTreeNode extends Component implements Node {
       this.right.parent = this
       console.warn('Assign me to new nodes parent')
     }
-    return this
   }
 
-  insert(value: any): Node {
+  insert(value: any): void {
     console.warn('Inserting value.')
     if (this.value === null) {
       console.warn('Current value is null.')
       console.log('Input value:', value, '\nNode value:', this.value)
       this.value = value
-      return this
     }
 
     if (value < this.value) {
@@ -111,12 +109,10 @@ export default class BinarySearchTreeNode extends Component implements Node {
       console.log('Input value:', value, '\nNode value:', this.value)
       if (this.left) {
         console.warn('Left child exists.')
-        return this.left.insert(value)
+        this.left.insert(value)
       }
       const newNode = new BinarySearchTreeNode({ value })
       this.setLeft(newNode)
-
-      return newNode
     }
 
     if (value > this.value) {
@@ -124,13 +120,12 @@ export default class BinarySearchTreeNode extends Component implements Node {
       console.log('Input value:', value, '\nNode value:', this.value)
       if (this.right) {
         console.warn('Right child exists.')
-        return this.right.insert(value)
+        this.right.insert(value)
       }
       const newNode = new BinarySearchTreeNode({ value })
       this.setRight(newNode)
-      return newNode
     }
-    return this
+    console.log(this);
   }
 
   find(value: any): null | Node {
@@ -281,6 +276,8 @@ export default class BinarySearchTreeNode extends Component implements Node {
   }
 
   render() {
+    console.log(this);
+    let rightNode = this.right && new BinarySearchTreeNode({ ...this.right })
     return (
       <>
         <h1>
