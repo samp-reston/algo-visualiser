@@ -1,6 +1,6 @@
 const { render, screen } = require("@testing-library/react")
-import Tree from './Tree'
-import Node from './Node'
+import Tree from './BinarySearchTree'
+import Node from './BinarySearchTreeNode'
 
 // describe('BinarySearchTree', () => {
 //   it('should be visible when Node is passed as a child', () => {
