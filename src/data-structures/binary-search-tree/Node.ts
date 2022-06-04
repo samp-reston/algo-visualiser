@@ -24,13 +24,13 @@ export interface Node {
   toString(): string;
 }
 
-export default class BinarySearchTreeNode implements Node {
+export default class NodeClass implements Node {
   value: any;
   left: null | Node;
   right: null | Node;
   parent: null | Node;
 
-  constructor(value = null){
+  constructor(value = null) {
     this.value = value;
     this.left = null;
     this.right = null;
@@ -100,7 +100,7 @@ export default class BinarySearchTreeNode implements Node {
       if (this.left) {
         return this.left.insert(value)
       }
-      const newNode = new BinarySearchTreeNode(value)
+      const newNode = new NodeClass(value)
       this.setLeft(newNode)
 
       return newNode
@@ -110,7 +110,7 @@ export default class BinarySearchTreeNode implements Node {
       if (this.right) {
         return this.right.insert(value)
       }
-      const newNode = new BinarySearchTreeNode(value)
+      const newNode = new NodeClass(value)
       this.setRight(newNode)
 
       return newNode

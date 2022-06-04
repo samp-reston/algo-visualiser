@@ -1,41 +1,74 @@
 import { Component } from "react";
 import BinarySearchTreeNode, { Node } from "./Node";
+import NodeClass from '../../../../data-structures/binary-search-tree/Node'
 
 interface Tree {
   root: Node;
 
-  insert(value: any): void;
+  insert(value: any): Node;
   contains(value: any): boolean;
   remove(value: any): boolean;
   toString(): string;
 }
 
-export default class BinarySearchTree extends Component implements Tree {
-  root: Node
+type MyState = {
+  root: NodeClass;
+  valueToBeInserted: any;
+}
 
-  constructor(props: Tree) {
-    super(props);
-    this.root = new BinarySearchTreeNode({ value: null })
+export default class BinarySearchTree extends Component {
+  state: MyState = {
+    root: new NodeClass(),
+    valueToBeInserted: ''
   }
 
-  insert(value: any): void {
-    this.forceUpdate()
-    this.root.insert(value)
+  insert = (value: any): NodeClass => {
+    return this.state.root.insert(value)
   }
 
-  contains(value: any): boolean {
-    return this.root.contains(value)
+  contains = (value: any): boolean => {
+    return this.state.root.contains(value)
   }
 
-  remove(value: any): boolean {
-    return this.root.remove(value)
+  remove = (value: any): boolean => {
+    return this.state.root.remove(value)
   }
 
-  toString(): string {
-    return this.root.toString()
+  toString = (): string => {
+    return this.state.root.toString()
+  }
+
+  handleInsertValueChange = (e: any) => {
+    this.setState(() => (
+      { ...this.state, valueToBeInserted: e.target.value })
+    )
+  }
+
+  handleRootChange = (newRoot: NodeClass) => {
+    this.setState(() => (
+      { ...this.state, root: newRoot }
+    ))
+  }
+
+  handleInsert = () => {
+    if (this.state.valueToBeInserted === '') return
+    const newRoot = this.state.root
+    const value = this.state.valueToBeInserted
+    newRoot.insert(this.state.valueToBeInserted)
+
+    console.log(newRoot, value, newRoot === this.state.root);
+
+    this.handleRootChange(newRoot)
+  }
+
+  resetRoot = () => {
+    this.handleRootChange(new NodeClass())
   }
 
   componentDidMount() {
+    const newRoot = this.state.root.insert(1)
+    console.log(newRoot);
+    this.handleRootChange(newRoot)
     console.log('Binary Tree Mounted.')
   }
 
@@ -43,26 +76,15 @@ export default class BinarySearchTree extends Component implements Tree {
     console.log('Binary Tree Updated.')
   }
 
-  renderNodes(node: Node): void | JSX.Element {
-    if (node) {
-      return <BinarySearchTreeNode {...node} />
-    }
-  }
-
   render() {
-    console.log('Root:', this.root.value)
+    console.log(this.state);
     return (
       <>
-        {this.root.value && <BinarySearchTreeNode {...this.root} />}
-        {/* {this.root.left?.value && <BinarySearchTreeNode {...this.root.left} />}
-        {this.root.right?.value && <BinarySearchTreeNode {...this.root.right} />}
-        {this.root.parent?.value && <BinarySearchTreeNode {...this.root.parent} />} */}
-        <button onClick={() => { this.insert(1) }}>Insert 1</button>
-        <button onClick={() => { this.insert(2) }}>Insert 2</button>
-        <button onClick={() => { this.insert(3) }}>Insert 3</button>
-        <button onClick={() => { this.insert(4) }}>Insert 4</button>
-        <button onClick={() => { this.insert(5) }}>Insert 5</button>
-        <button onClick={() => { this.insert(6) }}>Insert 6</button>
+        <h3>Binary Search Tree</h3>
+        <BinarySearchTreeNode {...this.state.root} />
+        <button onClick={this.handleInsert}>Insert</button>
+        <input type="text" value={this.state.valueToBeInserted} onChange={this.handleInsertValueChange} />
+        <button onClick={this.resetRoot}>Clear</button>
       </>
     )
   }
