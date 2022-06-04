@@ -36,6 +36,13 @@ type MyState = {
 }
 
 export default class BinarySearchTreeNode extends Component implements Node {
+  constructor(props: Node) {
+    super(props)
+    this.state = {
+      value = props.value
+    }
+  }
+
   state: MyState = {
     value: null,
     left: null,
