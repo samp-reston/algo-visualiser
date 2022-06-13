@@ -1,7 +1,8 @@
+import { Node } from "../../../data-structures/binary-search-tree/Node";
 
 
-function NodeComponent({ value }: any) {
-  console.log("Node:", value);
+function NodeComponent(node: Partial<Node>) {
+  console.log("Node:", node);
 
   const nodeStyle = {
     'height': '64px',
@@ -17,7 +18,9 @@ function NodeComponent({ value }: any) {
 
   return (
     <>
-      <div className="bst-node" data-testid="bst-node" style={nodeStyle}>{value}</div>
+      {node.left?.value != null && <NodeComponent {...node.left} />}
+      <div className="bst-node" data-testid="bst-node" style={nodeStyle}>{node.value}</div>
+      {node.right?.value != null && <NodeComponent {...node.right} />}
     </>
   )
 }
