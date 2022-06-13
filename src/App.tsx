@@ -1,6 +1,7 @@
 import Header from "./components/Header/Header"
 import BinarySearchTree from './data-structures/binary-search-tree/Tree'
-import { useEffect, useState } from "react"
+import './App.css'
+import { useState } from "react"
 import TreeComponent from "./components/data-structures/BinarySearchTree/TreeComponent"
 
 function App() {
@@ -8,6 +9,8 @@ function App() {
   const [dataStructure, setDataStructure] = useState('binary-search-tree')
 
   const bst = new BinarySearchTree()
+  console.log(bst);
+
 
   return (
     <>
