@@ -18,8 +18,8 @@ function TreeComponent(tree: Partial<Tree>) {
 
   return (
     <>
-      <input type="text" id="insert-value" value={insertValue} onChange={(e) => setInsertValue(e.target.value)} />
-      <button onClick={handleSubmitValue}>Submit</button>
+      <input data-testid="insert-value" type="text" id="insert-value" value={insertValue} onChange={(e) => setInsertValue(e.target.value)} />
+      <button data-testid="submit" onClick={handleSubmitValue}>Submit</button>
       <div id="bst-tree" className="bst-tree">
         {tree.root?.value && <NodeComponent {...tree.root} />}
       </div>
