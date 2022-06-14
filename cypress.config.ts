@@ -1,6 +1,6 @@
 const { defineConfig } = require('cypress')
 
-module.exports = defineconfig({
+module.exports = defineConfig({
   "testFiles": "**/*.spec.{js,ts,jsx,tsx}",
   "componentFolder": "src"
 })
