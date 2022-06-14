@@ -6,12 +6,12 @@ import BinarySearchTreeNode from '../../../data-structures/binary-search-tree/No
 // Act
 // Assert
 
-test('once rendered, will not display if no value is given', () => {
+test('will not display if no value is given', () => {
   const { queryByTestId } = render(<NodeComponent />)
   expect(queryByTestId(/bst-node/i)).toBeNull()
 })
 
-test('once rendered, displays value if given', () => {
+test('displays value if given', () => {
   const root = new BinarySearchTreeNode()
   const insertedRoot = root.insert('1')
 
@@ -20,7 +20,7 @@ test('once rendered, displays value if given', () => {
   expect(queryByTestId(/bst-node/i)?.textContent).toBe(insertedRoot.value)
 })
 
-test('once rendered, displays left child', () => {
+test('displays left child', () => {
   const root = new BinarySearchTreeNode()
   const insertedRoot = root.insert('1')
   const insertedLeftChild = root.insert('0')
@@ -30,7 +30,7 @@ test('once rendered, displays left child', () => {
   expect(queryByText(/0/i)?.textContent).toBe(insertedLeftChild.value)
 })
 
-test('once rendered, displays right child', () => {
+test('displays right child', () => {
   const root = new BinarySearchTreeNode()
   const insertedRoot = root.insert('1')
   const insertedRightChild = root.insert('2')
@@ -40,7 +40,7 @@ test('once rendered, displays right child', () => {
   expect(queryByText(/2/i)?.textContent).toBe(insertedRightChild.value)
 })
 
-test('once rendered, displays left childs children', () => {
+test('displays left childs children', () => {
   const root = new BinarySearchTreeNode()
   const insertedRoot = root.insert('1')
   const insertedLeftChild = root.insert('-1')
@@ -53,7 +53,7 @@ test('once rendered, displays left childs children', () => {
   expect(queryByText(/-2/i)?.textContent).toBe(insertedLeftChildLeft.value)
 })
 
-test('once rendered, displays right childs children', () => {
+test('displays right childs children', () => {
   const root = new BinarySearchTreeNode()
   const insertedRoot = root.insert('1')
   const insertedRightChild = root.insert('3')
