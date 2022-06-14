@@ -4,7 +4,9 @@
   "private": true,
   "homepage": "https://samp-reston.github.io/algo-visualiser",
   "jest": {
-    "testMatch": ["**/?(*.)+(test).[jt]s?(x)"]
+    "testMatch": [
+      "**/?(*.)+(test).[jt]s?(x)"
+    ]
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
