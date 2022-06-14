@@ -10,6 +10,14 @@ function TreeComponent(tree: Partial<Tree>) {
   tree.root?.insert(20)
   tree.root?.insert(10)
   tree.root?.insert(30)
+  tree.root?.insert(9)
+  tree.root?.insert(11)
+  tree.root?.insert(29)
+  tree.root?.insert(31)
+  tree.root?.insert(8)
+  tree.root?.insert(13)
+  tree.root?.insert(25)
+  tree.root?.insert(42)
 
   const handleSubmitValue = () => {
     if (!insertValue) return
@@ -25,7 +33,7 @@ function TreeComponent(tree: Partial<Tree>) {
     <>
       <input type="text" id="insert-value" value={insertValue} onChange={(e) => setInsertValue(e.target.value)} />
       <button onClick={handleSubmitValue}>Submit</button>
-      <div className="bst-tree">
+      <div id="bst-tree" className="bst-tree">
         {tree.root?.value && <NodeComponent {...tree.root} />}
       </div>
     </>

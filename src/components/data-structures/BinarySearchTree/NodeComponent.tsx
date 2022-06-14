@@ -1,6 +1,5 @@
 import { Node } from "../../../data-structures/binary-search-tree/Node";
 
-
 function NodeComponent(node: Partial<Node>) {
   let childStyle: string = 'bst-root'
   if (node.parent?.left?.value === node.value) {
@@ -10,11 +9,21 @@ function NodeComponent(node: Partial<Node>) {
     childStyle = 'bst-right-child'
   }
 
+  const getNodeHeight = (node: Partial<Node>): number => {
+    if (!node.parent) return 0
+    return 1 + getNodeHeight(node.parent)
+  }
 
   return (
-    <div className={childStyle}>
+    <div className="container">
       {node.left?.value != null && <NodeComponent {...node.left} />}
-      <div className={`bst-node ${childStyle}`} data-testid="bst-node">{node.value}</div>
+      <div
+        id={node.value}
+        style={{ marginTop: `${getNodeHeight(node) * 4}rem` }}
+        className={`bst-node ${childStyle}`}
+        data-testid="bst-node">
+        {node.value}
+      </div>
       {node.right?.value != null && <NodeComponent {...node.right} />}
     </div>
   )

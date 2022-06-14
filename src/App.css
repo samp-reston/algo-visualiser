@@ -1,7 +1,7 @@
 .bst-tree {
   display: flex;
   flex-direction: row;
-  width: 1000px;
+  width: 100%;
   margin: 0 auto;
   justify-content: center;
 }
@@ -16,6 +16,11 @@
   color: #f8f1f1;
   font-size: 48px;
   filter: drop-shadow(0px 0px 5px black);
+  margin: 0 0.25rem;
+}
+
+.container {
+  display: flex;
 }
 
 .bst-root {
@@ -29,7 +34,3 @@
 .bst-right-child {
   color: yellow;
 }
-
-.bst-node>.bst-left-child {}
-
-.bst-node>.bst-right-child {}
