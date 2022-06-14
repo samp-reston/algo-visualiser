@@ -17,13 +17,13 @@ function NodeComponent(node: Partial<Node>) {
   return (
     <div className="container">
       {node.left?.value != null && <NodeComponent {...node.left} />}
-      <div
+      {node.value && <div
         id={node.value}
         style={{ marginTop: `${getNodeHeight(node) * 4}rem` }}
-        className={`bst-node ${childStyle}`}
+        className={`bst-node ${node.value && childStyle}`}
         data-testid="bst-node">
         {node.value}
-      </div>
+      </div>}
       {node.right?.value != null && <NodeComponent {...node.right} />}
     </div>
   )
