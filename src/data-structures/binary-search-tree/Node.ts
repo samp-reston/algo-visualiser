@@ -30,7 +30,7 @@ export default class BinarySearchTreeNode implements Node {
   right: null | Node;
   parent: null | Node;
 
-  constructor(value = null){
+  constructor(value = null) {
     this.value = value;
     this.left = null;
     this.right = null;

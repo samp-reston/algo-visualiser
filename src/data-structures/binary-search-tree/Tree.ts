@@ -1,6 +1,6 @@
 import BinarySearchTreeNode, { Node } from "./Node";
 
-interface Tree {
+export interface Tree {
   root: Node;
 
   insert(value: any): Node;

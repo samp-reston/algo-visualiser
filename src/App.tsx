@@ -1,16 +1,18 @@
 import Header from "./components/Header/Header"
-import Node from "./components/data-structures/BinarySearchTree/Node"
-import Tree from "./components/data-structures/BinarySearchTree/Tree"
+import BinarySearchTree from './data-structures/binary-search-tree/Tree'
+import './App.css'
+import { useState } from "react"
+import TreeComponent from "./components/data-structures/BinarySearchTree/TreeComponent"
 
 function App() {
+  const [dataStructure, setDataStructure] = useState('binary-search-tree')
+
+  const bst = new BinarySearchTree()
+
   return (
     <>
       <Header />
-      <Tree>
-        <Node value={1} />
-        <Node value={3} />
-        <Node value={4} />
-      </Tree>
+      {dataStructure === 'binary-search-tree' && <TreeComponent {...bst} />}
     </>
   )
 }
