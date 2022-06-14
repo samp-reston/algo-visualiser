@@ -8,8 +8,6 @@ function App() {
   const [dataStructure, setDataStructure] = useState('binary-search-tree')
 
   const bst = new BinarySearchTree()
-  console.log(bst);
-
 
   return (
     <>
