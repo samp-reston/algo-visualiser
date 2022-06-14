@@ -8,7 +8,7 @@ on:
       - '*'
 
 jobs:
-  test-commit:
+  pr-open:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

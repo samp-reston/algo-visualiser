@@ -5,7 +5,6 @@ import { useState } from "react"
 import TreeComponent from "./components/data-structures/BinarySearchTree/TreeComponent"
 
 function App() {
-  const [values, setValues] = useState([''])
   const [dataStructure, setDataStructure] = useState('binary-search-tree')
 
   const bst = new BinarySearchTree()
