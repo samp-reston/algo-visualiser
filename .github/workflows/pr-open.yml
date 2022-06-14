@@ -22,3 +22,9 @@ jobs:
       - run: npm install --legacy-peer-deps
 
       - run: npm run test
+
+      - name: Run Component tests
+        uses: cypress-io/github-action@v4
+        with:
+          install: false
+          command: npx cypress run-ct
