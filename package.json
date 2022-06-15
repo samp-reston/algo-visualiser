@@ -50,6 +50,7 @@
     ]
   },
   "devDependencies": {
+    "cypress": "^10.0.3",
     "gh-pages": "^4.0.0",
     "html-webpack-plugin": "^4.5.2"
   }
