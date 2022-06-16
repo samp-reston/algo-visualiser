@@ -21,7 +21,7 @@ function NodeComponent(node: Partial<Node>) {
         id={node.value}
         style={{ marginTop: `${getNodeHeight(node) * 4}rem` }}
         className={`bst-node ${node.value && childStyle}`}
-        data-testid="bst-node">
+        data-testid={`bst-node ${node.value && childStyle}`}>
         {node.value}
       </div>}
       {node.right?.value != null && <NodeComponent {...node.right} />}

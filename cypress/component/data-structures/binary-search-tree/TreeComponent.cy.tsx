@@ -9,7 +9,7 @@ import BinarySearchTree from '../../../../src/data-structures/binary-search-tree
 describe('TreeComponent', () => {
   const inputSelector = '[data-testid=insert-value]'
   const submitSelector = '[data-testid=submit]'
-  const nodeSelector = '[data-testid=bst-node]'
+  const nodeSelector = '[data-testid="bst-node bst-root"]'
 
   it('mounts', () => {
     mount(<TreeComponent />)
