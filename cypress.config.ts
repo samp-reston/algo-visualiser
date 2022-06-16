@@ -10,6 +10,7 @@ export default defineConfig({
   },
 
   e2e: {
+    baseUrl: 'http://localhost:3000/algo-visualiser',
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
