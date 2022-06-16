@@ -1,4 +1,4 @@
-import TreeComponent from './TreeComponent'
+import TreeComponent from '../../../../src/components/data-structures/BinarySearchTree/TreeComponent'
 import { mount } from 'cypress/react'
 
 // Arange

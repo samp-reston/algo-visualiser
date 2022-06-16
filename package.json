@@ -50,6 +50,7 @@
     ]
   },
   "devDependencies": {
+    "@types/testing-library__react": "^10.2.0",
     "cypress": "^10.0.3",
     "gh-pages": "^4.0.0",
     "html-webpack-plugin": "^4.5.2"
