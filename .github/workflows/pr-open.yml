@@ -23,4 +23,12 @@ jobs:
 
       - run: npm run test
 
+      - name: Cypress Component Tests
+        uses: cypress-io/github-action@v4
+        with:
+          command: npm run cypress:ct
+
+      - name: Cypress E2E Tests
+        uses: cypress-io/github-action@v4
+
       - run: npm run build

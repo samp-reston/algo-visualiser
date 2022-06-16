@@ -29,7 +29,8 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "cypress:ct": "cypress run --component"
   },
   "eslintConfig": {
     "extends": [
@@ -50,6 +51,7 @@
     ]
   },
   "devDependencies": {
+    "@types/testing-library__react": "^10.2.0",
     "cypress": "^10.0.3",
     "gh-pages": "^4.0.0",
     "html-webpack-plugin": "^4.5.2"
