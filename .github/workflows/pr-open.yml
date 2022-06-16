@@ -25,7 +25,5 @@ jobs:
 
       - name: Cypress Component Tests
         uses: cypress-io/github-action@v4
-        with:
-          command: npm run cypress:ct
 
       - run: npm run build
