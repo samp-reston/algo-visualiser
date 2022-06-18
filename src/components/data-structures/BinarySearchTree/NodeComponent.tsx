@@ -55,19 +55,12 @@ function NodeComponent(node: Partial<Node>) {
   return (
     <div className="container">
       {node.left?.value != null && <NodeComponent {...node.left} />}
-      {/* <Branch x1={thisNodePosition?.x} y1={thisNodePosition?.y} x2={leftChildPosition.x} y2={leftChildPosition.y} /> */}
       {node.value && <div
         id={node.value}
         style={{ marginTop: `${getNodeHeight(node) * 4}rem` }}
         className={`bst-node ${node.value && childStyle}`}
         data-testid={`bst-node ${node.value && childStyle}`}>
-        {
-          node.right?.value &&
-          thisNodeOffsetWidth &&
-          thisNodeOffsetHeight &&
-          rightChildPosition &&
-          <Branch x1={32} y1={32} x2={96} y2={96} />
-        }
+        <Branch x1={32} y1={32} x2={96} y2={96} />
         {node.value}
       </div>}
       {node.right?.value != null && <NodeComponent {...node.right} />}
