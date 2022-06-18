@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 
 function TreeComponent(tree: Partial<Tree>) {
   const [submitted, setSubmitted] = useState(false)
-  const [insertValue, setInsertValue] = useState('')
+  const [insertValue, setInsertValue] = useState<'' | number>('')
 
   const handleSubmitValue = () => {
     if (!insertValue) return
@@ -19,7 +19,7 @@ function TreeComponent(tree: Partial<Tree>) {
 
   return (
     <>
-      <input data-testid="insert-value" type="number" id="insert-value" value={insertValue} onChange={(e) => setInsertValue(e.target.value)} />
+      <input data-testid="insert-value" type="number" id="insert-value" value={insertValue} onChange={(e) => setInsertValue(+e.target.value)} />
       <button data-testid="submit" onClick={handleSubmitValue}>Submit</button>
       <div id="bst-tree" className="bst-tree">
         {tree.root?.value && <NodeComponent {...tree.root} />}
