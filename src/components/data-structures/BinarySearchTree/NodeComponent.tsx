@@ -19,27 +19,24 @@ function NodeComponent(node: Partial<Node>) {
     return 1 + getNodeHeight(node.parent)
   }
 
-  useEffect(() => {
-    // Use Offset instead of bounding client rect
-    const rightChild = document.getElementById(node.right?.value)?.getBoundingClientRect()
-    console.log(rightChild, node.right?.value);
-    console.log(document.getElementById(node.value)?.getBoundingClientRect(), node.value)
-  }, [])
+  const ParentBranch = () => {
+    console.log(node.parent, node.value);
+    if (!node.parent?.value) return <></>
+    const parentElement = document.getElementById(node.parent.value)
+    console.log(parentElement, node.value, node.parent);
+    return (
+      <Branch x1={0} y1={0} x2={96} y2={96} />
+    )
+  }
 
   if (!node.value) return <></>
 
   return (
     <>
       {node.left?.value != null && <NodeComponent {...node.left} />}
+      {node.parent ? <ParentBranch /> : ''}
       <div id={node.value} className={`bst-node ${node.value && childStyle}`} data-testid={`bst-node ${node.value && childStyle}`} style={{ marginTop: `${getNodeHeight(node) * 4}rem` }}>
-        {/* {node.left && <Branch x1={0} y1={0} x2={96} y2={96} />} */}
         <p>{node.value}</p>
-        <Branch
-          x1={150}
-          y1={0 + 76}
-          x2={96}
-          y2={96}
-        />
       </div>
       {node.right?.value != null && <NodeComponent {...node.right} />}
     </>

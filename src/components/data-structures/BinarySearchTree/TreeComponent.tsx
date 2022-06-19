@@ -7,7 +7,6 @@ function TreeComponent(tree: Partial<Tree>) {
   const [insertValue, setInsertValue] = useState<'' | number>('')
 
   const handleSubmitValue = () => {
-    if (!insertValue) return
     tree.root?.insert(insertValue)
     setSubmitted(!submitted)
     setInsertValue('')
@@ -22,7 +21,7 @@ function TreeComponent(tree: Partial<Tree>) {
       <input data-testid="insert-value" type="number" id="insert-value" value={insertValue} onChange={(e) => setInsertValue(+e.target.value)} />
       <button data-testid="submit" onClick={handleSubmitValue}>Submit</button>
       <div id="bst-tree" className="bst-tree">
-        {tree.root?.value && <NodeComponent {...tree.root} />}
+        {tree.root?.value ? <NodeComponent {...tree.root} /> : ''}
       </div>
     </>
   )
