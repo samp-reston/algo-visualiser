@@ -6,18 +6,6 @@ function NodeComponent(node: Partial<Node>) {
   const [leftChildPosition, setLeftChildPostion] = useState<undefined | { x: number, y: number }>(undefined)
   const [rightChildPosition, setRightChildPostion] = useState<undefined | { x: number, y: number }>(undefined)
 
-  const thisNodePosition = document.getElementById(node.value)?.getBoundingClientRect()
-  const thisNodeOffsetWidth = document.getElementById(node.value)?.offsetWidth
-  const thisNodeOffsetHeight = document.getElementById(node.value)?.offsetHeight
-  const thisNodeOffsetLeft = document.getElementById(node.value)?.offsetLeft
-  const thisNodeOffsetTop = document.getElementById(node.value)?.offsetTop
-  console.log(thisNodeOffsetWidth, thisNodeOffsetHeight, thisNodeOffsetLeft, thisNodeOffsetTop, node.value)
-  if (thisNodeOffsetLeft && thisNodeOffsetWidth && thisNodeOffsetTop && thisNodeOffsetHeight) {
-    const thisNodeCenterX = thisNodeOffsetLeft + thisNodeOffsetWidth / 2
-    const thisNodeCenterY = thisNodeOffsetTop + thisNodeOffsetHeight / 2
-    console.log({ x: thisNodeCenterX, y: thisNodeCenterY }, node.value);
-  }
-
   let childStyle: string = 'bst-root'
   if (node.parent?.left?.value === node.value) {
     childStyle = 'bst-left-child'
@@ -32,36 +20,29 @@ function NodeComponent(node: Partial<Node>) {
   }
 
   useEffect(() => {
-    if (leftChildPosition) return
-    const leftChildPos: DOMRect | undefined = document.getElementById(node.left?.value)?.getBoundingClientRect()
-    setLeftChildPostion(leftChildPos)
-  })
-
-  useEffect(() => {
-    if (rightChildPosition) return
-    const rightChildOffsetWidth = document.getElementById(node.right?.value)?.offsetWidth
-    const rightChildOffsetHeight = document.getElementById(node.right?.value)?.offsetHeight
-    const rightChildOffsetLeft = document.getElementById(node.right?.value)?.offsetLeft
-    const rightChildOffsetTop = document.getElementById(node.right?.value)?.offsetTop
-    console.log(rightChildOffsetWidth, rightChildOffsetHeight, rightChildOffsetLeft, rightChildOffsetTop, node.value)
-    if (!rightChildOffsetLeft || !rightChildOffsetWidth || !rightChildOffsetTop || !rightChildOffsetHeight) return
-    const x = rightChildOffsetLeft + rightChildOffsetWidth / 2
-    const y = rightChildOffsetTop + rightChildOffsetHeight / 2
-    console.log(x, y);
-    setRightChildPostion({ x, y })
-  })
+    // Use Offset instead of bounding client rect
+    const rightChild = document.getElementById(node.right?.value)?.getBoundingClientRect()
+    console.log(rightChild, node.right?.value);
+    console.log(document.getElementById(node.value)?.getBoundingClientRect(), node.value)
+  }, [])
 
   if (!node.value) return <></>
 
   return (
-    <div className="container">
+    <>
       {node.left?.value != null && <NodeComponent {...node.left} />}
       <div id={node.value} className={`bst-node ${node.value && childStyle}`} data-testid={`bst-node ${node.value && childStyle}`} style={{ marginTop: `${getNodeHeight(node) * 4}rem` }}>
-        {/* <Branch x1={32} y1={32} x2={96} y2={96} /> */}
-        {node.value}
+        {/* {node.left && <Branch x1={0} y1={0} x2={96} y2={96} />} */}
+        <p>{node.value}</p>
+        <Branch
+          x1={150}
+          y1={0 + 76}
+          x2={96}
+          y2={96}
+        />
       </div>
       {node.right?.value != null && <NodeComponent {...node.right} />}
-    </div>
+    </>
   )
 }
 

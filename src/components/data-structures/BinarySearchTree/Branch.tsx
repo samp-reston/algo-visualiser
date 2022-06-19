@@ -1,14 +1,21 @@
+import { Node } from "../../../data-structures/binary-search-tree/Node";
+
 type Branch = {
-  x1: number;
-  y1: number;
-  x2: number;
-  y2: number
+  x1: number | undefined;
+  y1: number | undefined;
+  x2: number | undefined;
+  y2: number | undefined
+}
+
+type TargetNodes = {
+  parent: Partial<Node>
+  child: Partial<Node>
 }
 
 function Branch(props?: Branch) {
   if (!props) return <></>
   return (
-    <svg style={{ position: 'absolute', zIndex: '-1' }}>
+    <svg className="branch">
       <line x1={props.x1} y1={props.y1} x2={props.x2} y2={props.y2} stroke="red" />
     </svg>
   )
