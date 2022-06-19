@@ -3,8 +3,6 @@ import { Node } from "../../../data-structures/binary-search-tree/Node";
 import Branch from "./Branch";
 
 function NodeComponent(node: Partial<Node>) {
-  const [leftChildPosition, setLeftChildPostion] = useState<undefined | { x: number, y: number }>(undefined)
-  const [rightChildPosition, setRightChildPostion] = useState<undefined | { x: number, y: number }>(undefined)
   const [nodeParent, setNodeParent] = useState<null | Partial<Node>>(null)
 
   let childStyle: string = 'bst-root'

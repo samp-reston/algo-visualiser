@@ -13,7 +13,8 @@ function TreeComponent(tree: Partial<Tree>) {
   }
 
   useEffect(() => {
-    if (submitted) return setSubmitted(!submitted)
+    if (submitted) return
+    setSubmitted(!submitted)
   }, [submitted])
 
   return (
