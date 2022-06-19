@@ -4,25 +4,24 @@ import { useEffect, useState } from "react"
 
 function TreeComponent(tree: Partial<Tree>) {
   const [submitted, setSubmitted] = useState(false)
-  const [insertValue, setInsertValue] = useState('')
+  const [insertValue, setInsertValue] = useState<'' | number>('')
 
   const handleSubmitValue = () => {
-    if (!insertValue) return
     tree.root?.insert(insertValue)
     setSubmitted(!submitted)
     setInsertValue('')
   }
 
   useEffect(() => {
-    setSubmitted(!submitted)
-  }, [setSubmitted])
+    if (submitted) return setSubmitted(!submitted)
+  }, [submitted])
 
   return (
     <>
-      <input data-testid="insert-value" type="number" id="insert-value" value={insertValue} onChange={(e) => setInsertValue(e.target.value)} />
+      <input data-testid="insert-value" type="number" id="insert-value" value={insertValue} onChange={(e) => setInsertValue(+e.target.value)} />
       <button data-testid="submit" onClick={handleSubmitValue}>Submit</button>
       <div id="bst-tree" className="bst-tree">
-        {tree.root?.value && <NodeComponent {...tree.root} />}
+        {tree.root?.value ? <NodeComponent {...tree.root} /> : ''}
       </div>
     </>
   )

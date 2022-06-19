@@ -164,7 +164,7 @@ export default class BinarySearchTreeNode implements Node {
       }
     } else if (nodeToRemove.left && nodeToRemove.right) {
       const nextBiggestNode: Node = nodeToRemove.right.findMin()
-      if (nextBiggestNode != nodeToRemove.right) {
+      if (nextBiggestNode !== nodeToRemove.right) {
         this.remove(nextBiggestNode.value)
         nodeToRemove.setValue(nextBiggestNode.value)
       } else {
