@@ -1,18 +1,11 @@
-import { Node } from "../../../data-structures/binary-search-tree/Node";
-
-type Branch = {
+type BranchProps = {
   x1: number | undefined;
   y1: number | undefined;
   x2: number | undefined;
   y2: number | undefined
 }
 
-type TargetNodes = {
-  parent: Partial<Node>
-  child: Partial<Node>
-}
-
-function Branch(props?: Branch) {
+function Branch(props?: BranchProps) {
   if (!props) return <></>
   return (
     <svg className="branch">

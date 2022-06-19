@@ -1,7 +1,7 @@
 # Data Structures & Algorithms Visualiser
 This project acts as learning tool for programmers to learn and develop their data structure and algorithm knowledge. This project was inspired by [trekhleb/javascript-algorithms](https://github.com/trekhleb/javascript-algorithms) and is now developed into TypeScript to allow for knowledge of both JavaScript and TypeScript implementations of such data structures and algorithms.
 
-Not only does this project allow the programmer to explore the way these data structures and algorithms are written but the website related to this project [insert link here] allows non-programmers or true beginners to visualise and interact with these data structures and algorithms.
+Not only does this project allow the programmer to explore the way these data structures and algorithms are written but the website related to this project allows non-programmers or true beginners to visualise and interact with these data structures and algorithms.
 
 This project serves a teriary reason, and that is to improve my own knowledge of data structures and algorithms and their manipulation.
 
