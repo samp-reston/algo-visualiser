@@ -25,9 +25,6 @@ jobs:
         with:
           command: npm run cypress:ct
 
-      - name: Cypress E2E Tests
-        uses: cypress-io/github-action@v4
-
       - run: npm run build
 
       - name: Deploy
