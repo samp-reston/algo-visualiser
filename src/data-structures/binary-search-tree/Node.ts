@@ -215,11 +215,13 @@ export default class BinarySearchTreeNode implements Node {
 
     if (this.left && this.left === nodeToReplace) {
       this.left = replacementNode
+      this.left.parent = this
       return true
     }
 
     if (this.right && this.right === nodeToReplace) {
       this.right = replacementNode
+      this.right.parent = this
       return true
     }
 

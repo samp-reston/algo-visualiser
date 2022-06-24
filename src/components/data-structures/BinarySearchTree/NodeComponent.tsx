@@ -34,6 +34,10 @@ function NodeComponent(node: Partial<Node>) {
     setNodeParent(node.parent)
   }, [node.parent])
 
+  useEffect(() => {
+    console.log(node.value)
+  }, [node.parent])
+
   if (!node.value) return <></>
 
   return (

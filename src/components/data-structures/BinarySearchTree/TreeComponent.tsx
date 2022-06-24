@@ -1,6 +1,6 @@
 import { Tree } from '../../../data-structures/binary-search-tree/Tree'
 import NodeComponent from './NodeComponent'
-import { useEffect, useState } from "react"
+import { useEffect, useState, useId } from "react"
 
 function TreeComponent(tree: Partial<Tree>) {
   const [submitted, setSubmitted] = useState(false)
