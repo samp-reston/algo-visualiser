@@ -1,8 +1,68 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+header {
+  background-color: #1C2938;
+  display: flex;
+  padding: 0 2rem;
+  height: 64px;
+  align-items: center;
+}
+
+header h1 {
+  color: #F8F1F1;
+  font-weight: normal;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+
+#methods {
+  margin: 1rem;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: #1C2938;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+#methods h2 {
+  margin: 0;
+  padding-bottom: 1rem;
+  color: #F8F1F1;
+  font-weight: normal;
+}
+
+#methods button {
+  margin: 0.5rem 0;
+  width: min-content;
+  align-self: end;
+  background-color: #CD3F3E;
+  color: #F8F1F1;
+  border: none;
+  border-radius: 0.25rem;
+}
+
+#methods input {
+  background-color: #F8F1F1;
+  border-radius: 0.25rem;
+}
+
+#methods input:focus {
+  outline: none;
+}
+
 .bst-tree {
   display: flex;
   flex-direction: row;
   width: 100%;
-  margin: 0 auto;
+  margin: 2rem auto;
   justify-content: center;
 }
 
@@ -16,19 +76,15 @@
   border-radius: 50%;
   color: #f8f1f1;
   font-size: 200%;
-  filter: drop-shadow(0px 0px 5px black);
+  filter: drop-shadow(0px 0px 3px black);
 }
 
-p {
+.bst-node p {
   position: absolute
 }
 
 .container {
   display: flex;
-}
-
-body {
-  margin: 0;
 }
 
 .branch {
@@ -38,11 +94,11 @@ body {
 }
 
 .error {
-  background-color: rgba(255, 0, 0, 0.192);
+  background-color: rgba(255, 0, 0, 0.192) !important;
 }
 
 .success {
-  background-color: rgba(0, 128, 0, 0.59);
+  background-color: rgba(0, 128, 0, 0.59) !important;
 }
 
 svg {
