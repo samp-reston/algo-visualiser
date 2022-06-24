@@ -15,7 +15,7 @@ describe('TreeComponent', () => {
     mount(<TreeComponent />)
   })
 
-  it('form is enabled', () => {
+  it('insert form is enabled', () => {
     mount(<TreeComponent />)
 
     cy.get(inputSelector).should('be.enabled')

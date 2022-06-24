@@ -12,6 +12,7 @@ function App() {
   return (
     <>
       <Header />
+      {dataStructure.replaceAll('-', ' ')}
       {dataStructure === 'binary-search-tree' && <TreeComponent {...bst} />}
     </>
   )
