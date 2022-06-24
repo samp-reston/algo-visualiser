@@ -185,11 +185,7 @@ describe('BinarySearchTreeNode', () => {
     bstRootNode.insert(10);
     bstRootNode.insert(20);
 
-    function removeNotExistingElementFromTree() {
-      bstRootNode.remove(30);
-    }
-
-    expect(removeNotExistingElementFromTree).toThrow();
+    expect(bstRootNode.remove(30)).toBeFalsy();
   });
 
   it('should be possible to use objects as node values', () => {
