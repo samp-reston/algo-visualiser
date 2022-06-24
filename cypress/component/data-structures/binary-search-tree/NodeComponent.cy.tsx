@@ -25,7 +25,7 @@ describe('NodeComponent', () => {
 
   it('renders root when given 1 node', () => {
     const root = new BinarySearchTreeNode()
-    const value = Math.floor(Math.random() * 10)
+    const value = Math.floor(Math.random() * 10) + 1
     const insertNode = root.insert(value)
 
     mount(<NodeComponent {...root} />)
@@ -35,23 +35,25 @@ describe('NodeComponent', () => {
 
   it('displays left child', () => {
     const root = new BinarySearchTreeNode()
-    const value = Math.floor(Math.random() * 10)
-    const insertNode1 = root.insert(value)
-    const insertNode2 = root.insert(value - 1)
+    const value1 = Math.floor(Math.random() * 10) + 1
+    const value2 = value1 - 1
+    root.insert(value1)
+    root.insert(value2)
 
     mount(<NodeComponent {...root} />)
 
-    cy.get(leftChildSelector).should('contain.text', insertNode2.value)
+    cy.get(leftChildSelector).should('contain.text', value2)
   })
 
   it('displays right child', () => {
     const root = new BinarySearchTreeNode()
-    const value = Math.floor(Math.random() * 10)
-    const insertNode1 = root.insert(value)
-    const insertNode2 = root.insert(value + 1)
+    const value1 = Math.floor(Math.random() * 10) + 1
+    const value2 = value1 + 1
+    root.insert(value1)
+    root.insert(value2)
 
     mount(<NodeComponent {...root} />)
 
-    cy.get(rightChildSelector).should('contain.text', insertNode2.value)
+    cy.get(rightChildSelector).should('contain.text', value2)
   })
 })
