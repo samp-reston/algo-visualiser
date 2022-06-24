@@ -49,6 +49,16 @@ describe('TreeComponent', () => {
     cy.get(submitSelector).should('be.enabled')
   })
 
+  it('tree contains form is enabled', () => {
+    const inputSelector = '[data-testid=contains-value]'
+    const submitSelector = '[data-testid=contains-submit]'
+
+    mount(<TreeComponent />)
+
+    cy.get(inputSelector).should('be.enabled')
+    cy.get(submitSelector).should('be.enabled')
+  })
+
   it('inserts value', () => {
     const bst = new BinarySearchTree()
     const value = Math.floor(Math.random() * 10) + 1
@@ -79,6 +89,21 @@ describe('TreeComponent', () => {
 
     cy.get(value1Selector).should('not.exist')
     cy.get(value2Selector).should('exist')
+  })
+
+  it('contains value', () => {
+    const bst = new BinarySearchTree()
+    const value = Math.floor(Math.random() * 10) + 1
+    const valueSelector = `[id=${value}]`
+    const inputSelector = '[data-testid=contains-value]'
+    const submitSelector = '[data-testid=contains-submit]'
+    bst.insert(value)
+    mount(<TreeComponent {...bst} />)
+
+    cy.get(inputSelector).type(value.toString())
+    cy.get(submitSelector).click()
+
+    cy.get(inputSelector).should('have.css', 'background-color', 'rgba(0, 128, 0, 0.59)')
   })
 
 })
