@@ -151,7 +151,7 @@ export default class BinarySearchTreeNode implements Node {
     const nodeToRemove: null | Node = this.find(value)
 
     if (!nodeToRemove) {
-      throw new Error('Node not found in the tree!')
+      return false
     }
 
     const { parent } = nodeToRemove
@@ -160,7 +160,7 @@ export default class BinarySearchTreeNode implements Node {
       if (parent) {
         parent.removeChild(nodeToRemove)
       } else {
-        nodeToRemove.setValue(undefined)
+        nodeToRemove.setValue(null)
       }
     } else if (nodeToRemove.left && nodeToRemove.right) {
       const nextBiggestNode: Node = nodeToRemove.right.findMin()
@@ -215,11 +215,13 @@ export default class BinarySearchTreeNode implements Node {
 
     if (this.left && this.left === nodeToReplace) {
       this.left = replacementNode
+      this.left.parent = this
       return true
     }
 
     if (this.right && this.right === nodeToReplace) {
       this.right = replacementNode
+      this.right.parent = this
       return true
     }
 

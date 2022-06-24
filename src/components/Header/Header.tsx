@@ -1,9 +1,11 @@
 function Header() {
   return (
-    <nav data-testid="header">
-      <h1 data-testid="title">Data Structures &amp; Algorithms</h1>
-      {/* <SearchBar /> */}
-    </nav>
+    <header>
+      <h1 data-testid="title">Data Structures &amp; Algorithms Visualisation</h1>
+      <nav data-testid="header">
+        {/* <SearchBar /> */}
+      </nav>
+    </header>
   )
 }
 

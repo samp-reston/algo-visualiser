@@ -12,7 +12,9 @@ function App() {
   return (
     <>
       <Header />
-      {dataStructure === 'binary-search-tree' && <TreeComponent {...bst} />}
+      <main>
+        {dataStructure === 'binary-search-tree' && <TreeComponent {...bst} />}
+      </main>
     </>
   )
 }

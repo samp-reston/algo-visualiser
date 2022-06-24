@@ -23,8 +23,7 @@ function NodeComponent(node: Partial<Node>) {
     const parentRect = document.getElementById(node.parent.value)?.getBoundingClientRect()
     const nodeRect = document.getElementById(node.value)?.getBoundingClientRect()
     if (!parentRect || !nodeRect) return <></>
-    const MAGICTOPDISTANCE = 87.8125
-    console.log(parentRect, nodeRect, node.value);
+    const MAGICTOPDISTANCE = 102
     return (
       <Branch x1={nodeRect.left + (nodeRect.width / 2)} y1={nodeRect.top + (nodeRect.height / 2) - MAGICTOPDISTANCE} x2={parentRect.right - (parentRect.width / 2)} y2={parentRect.top + (parentRect.height / 2) - MAGICTOPDISTANCE} />
     )
