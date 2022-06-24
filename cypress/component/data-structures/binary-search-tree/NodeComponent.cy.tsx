@@ -35,7 +35,7 @@ describe('NodeComponent', () => {
 
   it('displays left child', () => {
     const root = new BinarySearchTreeNode()
-    const value1 = Math.floor(Math.random() * 10) + 1
+    const value1 = Math.floor(Math.random() * 10) + 2
     const value2 = value1 - 1
     root.insert(value1)
     root.insert(value2)
