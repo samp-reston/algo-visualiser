@@ -106,4 +106,24 @@ describe('TreeComponent', () => {
     cy.get(inputSelector).should('have.css', 'background-color', 'rgba(0, 128, 0, 0.59)')
   })
 
+  it('generates a tree', () => {
+    const bst = new BinarySearchTree()
+    const submitSelector = '[data-testid=generate-submit]'
+    mount(<TreeComponent {...bst} />)
+
+    cy.get(submitSelector).click()
+
+    cy.get(rootSelector).should('exist')
+  })
+
+  it('clears the tree', () => {
+    const bst = new BinarySearchTree()
+    bst.insert(1)
+    const submitSelector = '[data-testid=reset-submit]'
+    mount(<TreeComponent {...bst} />)
+
+    cy.get(submitSelector).click()
+    cy.get(rootSelector).should('not.exist')
+
+  })
 })

@@ -18,35 +18,38 @@ header h1 {
 
 main {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-items: center;
 }
 
 #methods {
   margin: 1rem;
-  position: absolute;
   display: flex;
   flex-direction: column;
   background-color: #1C2938;
+  height: max-content;
   padding: 1rem;
   border-radius: 1rem;
+  z-index: 2;
+  filter: drop-shadow(0px 0px 3px black);
 }
 
 #methods h2 {
   margin: 0;
-  padding-bottom: 1rem;
+  padding-bottom: 0.25rem;
   color: #F8F1F1;
   font-weight: normal;
 }
 
 #methods button {
   margin: 0.5rem 0;
-  width: min-content;
+  width: max-content;
   align-self: end;
   background-color: #CD3F3E;
   color: #F8F1F1;
   border: none;
   border-radius: 0.25rem;
+  cursor: pointer;
 }
 
 #methods input {
@@ -56,6 +59,11 @@ main {
 
 #methods input:focus {
   outline: none;
+}
+
+#methods>.globals {
+  display: flex;
+  justify-content: space-around;
 }
 
 .bst-tree {

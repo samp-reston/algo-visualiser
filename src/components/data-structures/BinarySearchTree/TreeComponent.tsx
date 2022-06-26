@@ -1,4 +1,4 @@
-import { Tree } from '../../../data-structures/binary-search-tree/Tree'
+import BinarySearchTree, { Tree } from '../../../data-structures/binary-search-tree/Tree'
 import NodeComponent from './NodeComponent'
 import { useEffect, useState } from "react"
 
@@ -44,6 +44,20 @@ function TreeComponent(tree: Partial<Tree>) {
     setContainsValue('')
   }
 
+  const handleGenerateTree = () => {
+    for (let i = 0; i <= 25; i++) {
+      tree.root?.insert(Math.floor(Math.random() * 100) + 1)
+    }
+    setSubmitted(!submitted)
+  }
+
+  const handleResetTree = () => {
+    while (tree.root?.value) {
+      tree.root.remove(tree.root.value)
+    }
+    setSubmitted(!submitted)
+  }
+
   useEffect(() => {
     if (submitted) return
     setSubmitted(!submitted)
@@ -54,6 +68,11 @@ function TreeComponent(tree: Partial<Tree>) {
     <>
       <section id='methods'>
         <h2>Methods</h2>
+        <div className='globals'>
+          <button data-testid="generate-submit" onClick={handleGenerateTree}>Generate Tree</button>
+          <button data-testid="reset-submit" onClick={handleResetTree}>Reset</button>
+        </div>
+
         <input data-testid="insert-value" type="number" id="insert-value" value={insertValue} onChange={(e) => setInsertValue(+e.target.value)} />
         <button data-testid="insert-submit" onClick={handleInsertValue}>Insert</button>
 
