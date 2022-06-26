@@ -190,7 +190,6 @@ export default class BinarySearchTreeNode implements Node {
       }
     }
 
-    nodeToRemove.parent = null
     return true
   }
 
